@@ -9,8 +9,8 @@
         <module name="gs-spring-boot-docker" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="gs-spring-boot-docker" target="9" />
+    <bytecodeTargetLevel target="8">
+      <module name="gs-spring-boot-docker" target="8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
