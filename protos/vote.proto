@@ -1,0 +1,46 @@
+syntax = "proto3";
+option java_multiple_files = true;
+package protos;
+
+message VoteRequest {
+    int32 person_id = 1;
+    int32 vote = 2;
+}
+
+message VoteResponse {
+    string greeting = 1;
+}
+
+message StartRequest {
+
+}
+
+message StartResponse {
+
+}
+
+
+message StopRequest {
+
+}
+
+message StopResponse {
+
+}
+
+message VoteStatusRequest {
+
+}
+
+message VoteStatusResponse {
+
+}
+
+service VoteService {
+    rpc addVoteInternal(VoteRequest) returns (VoteResponse);
+    rpc startVoteInternal(StartRequest) returns(StartResponse);
+    rpc stopVoteInternal(StopRequest) returns(StopResponse);
+    rpc getVoteStatusInternal(VoteStatusRequest) returns(VoteStatusResponse);
+
+
+}
