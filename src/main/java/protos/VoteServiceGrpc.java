@@ -55,30 +55,57 @@ public final class VoteServiceGrpc {
   }
 
   private static volatile io.grpc.MethodDescriptor<protos.StartRequest,
-      protos.StartResponse> getStartVoteInternalMethod;
+      protos.StartResponse> getStartElectionsMethod;
 
   public static io.grpc.MethodDescriptor<protos.StartRequest,
-      protos.StartResponse> getStartVoteInternalMethod() {
-    io.grpc.MethodDescriptor<protos.StartRequest, protos.StartResponse> getStartVoteInternalMethod;
-    if ((getStartVoteInternalMethod = VoteServiceGrpc.getStartVoteInternalMethod) == null) {
+      protos.StartResponse> getStartElectionsMethod() {
+    io.grpc.MethodDescriptor<protos.StartRequest, protos.StartResponse> getStartElectionsMethod;
+    if ((getStartElectionsMethod = VoteServiceGrpc.getStartElectionsMethod) == null) {
       synchronized (VoteServiceGrpc.class) {
-        if ((getStartVoteInternalMethod = VoteServiceGrpc.getStartVoteInternalMethod) == null) {
-          VoteServiceGrpc.getStartVoteInternalMethod = getStartVoteInternalMethod = 
+        if ((getStartElectionsMethod = VoteServiceGrpc.getStartElectionsMethod) == null) {
+          VoteServiceGrpc.getStartElectionsMethod = getStartElectionsMethod = 
               io.grpc.MethodDescriptor.<protos.StartRequest, protos.StartResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
-                  "protos.VoteService", "startVoteInternal"))
+                  "protos.VoteService", "startElections"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   protos.StartRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   protos.StartResponse.getDefaultInstance()))
-                  .setSchemaDescriptor(new VoteServiceMethodDescriptorSupplier("startVoteInternal"))
+                  .setSchemaDescriptor(new VoteServiceMethodDescriptorSupplier("startElections"))
                   .build();
           }
         }
      }
-     return getStartVoteInternalMethod;
+     return getStartElectionsMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<protos.StartInternalRequest,
+      protos.StartInternalResponse> getStartElectionsInternalMethod;
+
+  public static io.grpc.MethodDescriptor<protos.StartInternalRequest,
+      protos.StartInternalResponse> getStartElectionsInternalMethod() {
+    io.grpc.MethodDescriptor<protos.StartInternalRequest, protos.StartInternalResponse> getStartElectionsInternalMethod;
+    if ((getStartElectionsInternalMethod = VoteServiceGrpc.getStartElectionsInternalMethod) == null) {
+      synchronized (VoteServiceGrpc.class) {
+        if ((getStartElectionsInternalMethod = VoteServiceGrpc.getStartElectionsInternalMethod) == null) {
+          VoteServiceGrpc.getStartElectionsInternalMethod = getStartElectionsInternalMethod = 
+              io.grpc.MethodDescriptor.<protos.StartInternalRequest, protos.StartInternalResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "protos.VoteService", "startElectionsInternal"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  protos.StartInternalRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  protos.StartInternalResponse.getDefaultInstance()))
+                  .setSchemaDescriptor(new VoteServiceMethodDescriptorSupplier("startElectionsInternal"))
+                  .build();
+          }
+        }
+     }
+     return getStartElectionsInternalMethod;
   }
 
   private static volatile io.grpc.MethodDescriptor<protos.StopRequest,
@@ -171,9 +198,16 @@ public final class VoteServiceGrpc {
 
     /**
      */
-    public void startVoteInternal(protos.StartRequest request,
+    public void startElections(protos.StartRequest request,
         io.grpc.stub.StreamObserver<protos.StartResponse> responseObserver) {
-      asyncUnimplementedUnaryCall(getStartVoteInternalMethod(), responseObserver);
+      asyncUnimplementedUnaryCall(getStartElectionsMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void startElectionsInternal(protos.StartInternalRequest request,
+        io.grpc.stub.StreamObserver<protos.StartInternalResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getStartElectionsInternalMethod(), responseObserver);
     }
 
     /**
@@ -200,12 +234,19 @@ public final class VoteServiceGrpc {
                 protos.VoteResponse>(
                   this, METHODID_ADD_VOTE_INTERNAL)))
           .addMethod(
-            getStartVoteInternalMethod(),
+            getStartElectionsMethod(),
             asyncUnaryCall(
               new MethodHandlers<
                 protos.StartRequest,
                 protos.StartResponse>(
-                  this, METHODID_START_VOTE_INTERNAL)))
+                  this, METHODID_START_ELECTIONS)))
+          .addMethod(
+            getStartElectionsInternalMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                protos.StartInternalRequest,
+                protos.StartInternalResponse>(
+                  this, METHODID_START_ELECTIONS_INTERNAL)))
           .addMethod(
             getStopVoteInternalMethod(),
             asyncUnaryCall(
@@ -252,10 +293,18 @@ public final class VoteServiceGrpc {
 
     /**
      */
-    public void startVoteInternal(protos.StartRequest request,
+    public void startElections(protos.StartRequest request,
         io.grpc.stub.StreamObserver<protos.StartResponse> responseObserver) {
       asyncUnaryCall(
-          getChannel().newCall(getStartVoteInternalMethod(), getCallOptions()), request, responseObserver);
+          getChannel().newCall(getStartElectionsMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void startElectionsInternal(protos.StartInternalRequest request,
+        io.grpc.stub.StreamObserver<protos.StartInternalResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getStartElectionsInternalMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -302,9 +351,16 @@ public final class VoteServiceGrpc {
 
     /**
      */
-    public protos.StartResponse startVoteInternal(protos.StartRequest request) {
+    public protos.StartResponse startElections(protos.StartRequest request) {
       return blockingUnaryCall(
-          getChannel(), getStartVoteInternalMethod(), getCallOptions(), request);
+          getChannel(), getStartElectionsMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public protos.StartInternalResponse startElectionsInternal(protos.StartInternalRequest request) {
+      return blockingUnaryCall(
+          getChannel(), getStartElectionsInternalMethod(), getCallOptions(), request);
     }
 
     /**
@@ -350,10 +406,18 @@ public final class VoteServiceGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<protos.StartResponse> startVoteInternal(
+    public com.google.common.util.concurrent.ListenableFuture<protos.StartResponse> startElections(
         protos.StartRequest request) {
       return futureUnaryCall(
-          getChannel().newCall(getStartVoteInternalMethod(), getCallOptions()), request);
+          getChannel().newCall(getStartElectionsMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<protos.StartInternalResponse> startElectionsInternal(
+        protos.StartInternalRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(getStartElectionsInternalMethod(), getCallOptions()), request);
     }
 
     /**
@@ -374,9 +438,10 @@ public final class VoteServiceGrpc {
   }
 
   private static final int METHODID_ADD_VOTE_INTERNAL = 0;
-  private static final int METHODID_START_VOTE_INTERNAL = 1;
-  private static final int METHODID_STOP_VOTE_INTERNAL = 2;
-  private static final int METHODID_GET_VOTE_STATUS_INTERNAL = 3;
+  private static final int METHODID_START_ELECTIONS = 1;
+  private static final int METHODID_START_ELECTIONS_INTERNAL = 2;
+  private static final int METHODID_STOP_VOTE_INTERNAL = 3;
+  private static final int METHODID_GET_VOTE_STATUS_INTERNAL = 4;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -399,9 +464,13 @@ public final class VoteServiceGrpc {
           serviceImpl.addVoteInternal((protos.VoteRequest) request,
               (io.grpc.stub.StreamObserver<protos.VoteResponse>) responseObserver);
           break;
-        case METHODID_START_VOTE_INTERNAL:
-          serviceImpl.startVoteInternal((protos.StartRequest) request,
+        case METHODID_START_ELECTIONS:
+          serviceImpl.startElections((protos.StartRequest) request,
               (io.grpc.stub.StreamObserver<protos.StartResponse>) responseObserver);
+          break;
+        case METHODID_START_ELECTIONS_INTERNAL:
+          serviceImpl.startElectionsInternal((protos.StartInternalRequest) request,
+              (io.grpc.stub.StreamObserver<protos.StartInternalResponse>) responseObserver);
           break;
         case METHODID_STOP_VOTE_INTERNAL:
           serviceImpl.stopVoteInternal((protos.StopRequest) request,
@@ -473,7 +542,8 @@ public final class VoteServiceGrpc {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new VoteServiceFileDescriptorSupplier())
               .addMethod(getAddVoteInternalMethod())
-              .addMethod(getStartVoteInternalMethod())
+              .addMethod(getStartElectionsMethod())
+              .addMethod(getStartElectionsInternalMethod())
               .addMethod(getStopVoteInternalMethod())
               .addMethod(getGetVoteStatusInternalMethod())
               .build();

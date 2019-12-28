@@ -19,6 +19,13 @@ message StartResponse {
 
 }
 
+message StartInternalRequest {
+
+}
+
+message StartInternalResponse {
+
+}
 
 message StopRequest {
 
@@ -38,7 +45,8 @@ message VoteStatusResponse {
 
 service VoteService {
     rpc addVoteInternal(VoteRequest) returns (VoteResponse);
-    rpc startVoteInternal(StartRequest) returns(StartResponse);
+    rpc startElections(StartRequest) returns(StartResponse);
+    rpc startElectionsInternal(StartInternalRequest) returns(StartInternalResponse);
     rpc stopVoteInternal(StopRequest) returns(StopResponse);
     rpc getVoteStatusInternal(VoteStatusRequest) returns(VoteStatusResponse);
 

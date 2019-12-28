@@ -35,6 +35,16 @@ public final class Vote {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_protos_StartResponse_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_protos_StartInternalRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_protos_StartInternalRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_protos_StartInternalResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_protos_StartInternalResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_protos_StopRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -66,16 +76,20 @@ public final class Vote {
       "\n\nvote.proto\022\006protos\".\n\013VoteRequest\022\021\n\tp" +
       "erson_id\030\001 \001(\005\022\014\n\004vote\030\002 \001(\005\" \n\014VoteResp" +
       "onse\022\020\n\010greeting\030\001 \001(\t\"\016\n\014StartRequest\"\017" +
-      "\n\rStartResponse\"\r\n\013StopRequest\"\016\n\014StopRe" +
-      "sponse\"\023\n\021VoteStatusRequest\"\024\n\022VoteStatu" +
-      "sResponse2\234\002\n\013VoteService\022<\n\017addVoteInte" +
-      "rnal\022\023.protos.VoteRequest\032\024.protos.VoteR" +
-      "esponse\022@\n\021startVoteInternal\022\024.protos.St" +
-      "artRequest\032\025.protos.StartResponse\022=\n\020sto" +
-      "pVoteInternal\022\023.protos.StopRequest\032\024.pro" +
-      "tos.StopResponse\022N\n\025getVoteStatusInterna" +
-      "l\022\031.protos.VoteStatusRequest\032\032.protos.Vo" +
-      "teStatusResponseB\002P\001b\006proto3"
+      "\n\rStartResponse\"\026\n\024StartInternalRequest\"" +
+      "\027\n\025StartInternalResponse\"\r\n\013StopRequest\"" +
+      "\016\n\014StopResponse\"\023\n\021VoteStatusRequest\"\024\n\022" +
+      "VoteStatusResponse2\360\002\n\013VoteService\022<\n\017ad" +
+      "dVoteInternal\022\023.protos.VoteRequest\032\024.pro" +
+      "tos.VoteResponse\022=\n\016startElections\022\024.pro" +
+      "tos.StartRequest\032\025.protos.StartResponse\022" +
+      "U\n\026startElectionsInternal\022\034.protos.Start" +
+      "InternalRequest\032\035.protos.StartInternalRe" +
+      "sponse\022=\n\020stopVoteInternal\022\023.protos.Stop" +
+      "Request\032\024.protos.StopResponse\022N\n\025getVote" +
+      "StatusInternal\022\031.protos.VoteStatusReques" +
+      "t\032\032.protos.VoteStatusResponseB\002P\001b\006proto" +
+      "3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -113,26 +127,38 @@ public final class Vote {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protos_StartResponse_descriptor,
         new java.lang.String[] { });
-    internal_static_protos_StopRequest_descriptor =
+    internal_static_protos_StartInternalRequest_descriptor =
       getDescriptor().getMessageTypes().get(4);
+    internal_static_protos_StartInternalRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_protos_StartInternalRequest_descriptor,
+        new java.lang.String[] { });
+    internal_static_protos_StartInternalResponse_descriptor =
+      getDescriptor().getMessageTypes().get(5);
+    internal_static_protos_StartInternalResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_protos_StartInternalResponse_descriptor,
+        new java.lang.String[] { });
+    internal_static_protos_StopRequest_descriptor =
+      getDescriptor().getMessageTypes().get(6);
     internal_static_protos_StopRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protos_StopRequest_descriptor,
         new java.lang.String[] { });
     internal_static_protos_StopResponse_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_protos_StopResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protos_StopResponse_descriptor,
         new java.lang.String[] { });
     internal_static_protos_VoteStatusRequest_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_protos_VoteStatusRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protos_VoteStatusRequest_descriptor,
         new java.lang.String[] { });
     internal_static_protos_VoteStatusResponse_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_protos_VoteStatusResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protos_VoteStatusResponse_descriptor,
