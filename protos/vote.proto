@@ -8,15 +8,23 @@ message VoteRequest {
 }
 
 message VoteResponse {
-    string greeting = 1;
+    bool started = 1;
 }
 
 message StartRequest {
-
 }
 
 message StartResponse {
+    string msg = 1;
+}
 
+message StopRequest {
+
+}
+
+message StopResponse {
+    string msg = 1;
+    repeated VoteStatusInternalResponse votes = 2;
 }
 
 message StartInternalRequest {
@@ -27,19 +35,38 @@ message StartInternalResponse {
 
 }
 
-message StopRequest {
+message StopInternalRequest {
 
 }
 
-message StopResponse {
+message StopInternalResponse {
 
 }
+
+
 
 message VoteStatusRequest {
 
 }
 
+message VoteStatusInternalRequest {
+
+}
+
 message VoteStatusResponse {
+    repeated VoteStatusInternalResponse votes = 1;
+}
+
+message VoteStatusInternalResponse {
+    int32 electorals = 1;
+    repeated int32 votes = 2;
+}
+
+message Test {
+
+}
+
+message TestResponse {
 
 }
 
@@ -47,8 +74,10 @@ service VoteService {
     rpc addVoteInternal(VoteRequest) returns (VoteResponse);
     rpc startElections(StartRequest) returns(StartResponse);
     rpc startElectionsInternal(StartInternalRequest) returns(StartInternalResponse);
-    rpc stopVoteInternal(StopRequest) returns(StopResponse);
-    rpc getVoteStatusInternal(VoteStatusRequest) returns(VoteStatusResponse);
-
+    rpc stopElectionsInternal(StopInternalRequest) returns(StopInternalResponse);
+    rpc stopElections(StopRequest) returns (StopResponse);
+    rpc getVoteStatus(VoteStatusRequest) returns(VoteStatusResponse);
+    rpc getVoteStatusInternal(VoteStatusInternalRequest) returns(VoteStatusInternalResponse);
+    rpc test(Test) returns(TestResponse);
 
 }
